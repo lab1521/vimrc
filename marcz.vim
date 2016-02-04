@@ -21,6 +21,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
