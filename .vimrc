@@ -1,49 +1,43 @@
 syntax enable
-
 set nocompatible   
-
+"Vundle custom source file
 so ~/.vim/marcz.vim
 
 "-------------General Settings-----"
 syntax enable
 set backspace=indent,eol,start       "Make backspace behave like every other editor.
 let mapleader = ','                  "The default is \, but a comma is much better.
-set number			     "Let's activate line numbers.
+set number			                 "Let's activate line numbers.
 set cursorline                       "Highlights current line
 set laststatus=2
 
 "Tabs
-set tabstop=4                   " a tab is four spaces
+set tabstop=4                        "Tab is four spaces
 set smarttab
-set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
-set expandtab                   " expand tabs by default (overloadable per file type later)
-set shiftwidth=4                " number of spaces to use for autoindenting
+set softtabstop=4                    "When hitting <BS>, pretend like a tab is removed, even if spaces
+set expandtab                        "Expand tabs by default (overloadable per file type later)
+set shiftwidth=4                     "Number of spaces to use for autoindenting
 
 " Swap files out of the project root
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
-set autoindent                        "Always set autoindenting on
-set copyindent                        "Copy the previous indentation on autoindenting
+set autoindent                       "Always set autoindenting on
+set copyindent                       "Copy the previous indentation on autoindenting
 
-set showmode                          " always show what mode we're editing at
-set nowrap                            " don't wrap lines
-
-"Automatically change current folder to that of the current file in buffer
-"autocmd BufEnter * cd %:p:h
-
+set showmode                         "Always show what mode we're editing at
+set nowrap                           "Don't wrap lines
 
 "-------------Visuals-------------"
 "colorscheme atom-dark
 "http://ethanschoonover.com/solarized
 colorscheme solarized
 
-set t_CO=256			     "Use 256 colors. This is useful for Terminal Vim.
+set t_CO=256			              "Use 256 colors. This is useful for Terminal Vim.
 set background=dark
-set guifont=Inconsolata		     "Set the default font family and size.
-" set guifont=DejaVu\ Sans\ Mono     "Set the default font family and size.
+set guifont=Inconsolata	      	      "Set the default font family and size.
+" set guifont=DejaVu\ Sans\ Mono      "Set the default font family and size.
 set lines=50 columns=120 linespace=10
-
 
 set guioptions-=T                     "Disable Gui Top Bar.
 set guioptions-=l                     "Disable Gui scrollbars.
@@ -74,11 +68,9 @@ let g:airline_theme='solarized'
 set hlsearch                         "Highlight all matched terms.
 set incsearch                        "Incrementally highlight, as we type.
 
-
 "-------------Split Management----"
-set splitbelow 			     "Make splits default to below...
-set splitright			     "And to the right. This feels more natural.
-
+set splitbelow 			             "Make splits default to below...
+set splitright			             "And to the right. This feels more natural.
 "We'll set simpler mappings to switch between splits.
 nmap <C-J> <C-W><C-J>		  
 nmap <C-K> <C-W><C-K>
@@ -86,30 +78,41 @@ nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
 "-------------Mappings------------"
-
+"Close current buffer
 nmap <C-Q> :bd<cr>
-
 "Make it easy to edit the Vimrc file.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
-
 "Add simple highlight removal.
 nmap <Leader><space> :nohlsearch<cr>
-
 "Easy escaping to normal model
 imap jj <esc>
 
+"----------------------------------"
+"| NERDTree
+"----------------------------------"
 "Make NERDTree easier to toggle.
 nmap <Leader>nt :NERDTreeToggle<cr>
+"Fix conflict with other plugin
+let NERDTreeHijackNetrw = 0
 
-"CtrlP extra shortcuts
+"----------------------------------"
+"| CtrlP
+"----------------------------------"
+let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
+let g:ctrlp_match_window = 'order:ttb,min:1,max:30,results:30'
 nmap <C-R> :CtrlPBufTag<cr>
 nmap <C-O> :CtrlPMRUFiles<cr>
 
-"TagBar
+"----------------------------------"
+"| TagBar
+"----------------------------------"
 nmap <F8> :TagbarToggle<CR>
 
+"----------------------------------"
+"| Ctags
+"----------------------------------"
+nmap <Leader>f :tag<space>
 
-"-------------Plugins--------------"
 "----------------------------------"
 "| Syntastic
 "| https://github.com/scrooloose/syntastic
@@ -124,12 +127,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "----------------------------------"
-"| CtrlP
-"----------------------------------"
-let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
-let g:ctrlp_match_window = 'order:ttb,min:1,max:30,results:30'
-
-"----------------------------------"
 "| EasyMotion
 "----------------------------------"
 "https://github.com/easymotion/vim-easymotion
@@ -139,19 +136,14 @@ let g:EasyMotion_do_mapping = 0       "Disable default mappings
 "Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
 nmap f <Plug>(easymotion-overwin-f)
-
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
 nmap s <Plug>(easymotion-overwin-f2)
-
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-
-
 "-------------Auto-Commands-------"
-
 "Automatically source the Vimrc file on save.
 augroup autosourcing
 	autocmd!
