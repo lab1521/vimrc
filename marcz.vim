@@ -5,27 +5,33 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'ctrlpvim/ctrlp.vim'
+" ---- Theme / Colors 
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'tpope/vim-vinegar'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'Yggdroot/indentLine'
+" ---- Faster shortcuts
+Plugin 'skwp/greplace.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Yggdroot/indentLine'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
 Plugin 'rking/ag.vim'
-Plugin 'skwp/greplace.vim'
+" ---- Vim as IDE 
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'tpope/vim-vinegar'
+" ---- Linters
+Plugin 'scrooloose/syntastic'
+" ---- Snippets
 Plugin 'msanders/snipmate.vim'
+" ---- Github
+" Plugin 'tpope/vim-fugitive.git'
+" Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
