@@ -146,6 +146,11 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 "----------------------------------"
+"| PHPComplete.vim
+"----------------------------------"
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+"----------------------------------"
 "| Custom keyboard shortcuts
 "----------------------------------"
 "Close current buffer
