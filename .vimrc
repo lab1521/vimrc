@@ -84,35 +84,6 @@ nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
-"-------------Mappings------------"
-"Close current buffer
-nmap <C-Q> :bd<cr>
-"Make it easy to edit the Vimrc file.
-nmap <Leader>ev :tabedit $MYVIMRC<cr>
-"Make it easy to edit marcz.vim vundle plugins list
-nmap <Leader>em :tabedit ~/.vim/marcz.vim<cr>
-"Add simple highlight removal.
-nmap <Leader><space> :nohlsearch<cr>
-"Easy escaping to normal model
-imap jj <esc>
-"Panic Save Behavior
-nnoremap <C-S> :w<cr>
-inoremap <C-S> <esc>:w<cr>
-"Moving lines up and down
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
-"Chang to current windows directory
-nnoremap <Leader>cd :lcd %:p:h<CR>:pwd<CR>
-"----------------------------------"
-"| Command Notes
-"----------------------------------"
-" Clear the quick fix list
-" :cexpr []
-
 "----------------------------------"
 "| GReplace.vim using Ag search
 "----------------------------------"
@@ -164,7 +135,6 @@ let g:syntastic_check_on_wq = 0
 "https://github.com/easymotion/vim-easymotion
 let g:EasyMotion_smartcase = 1        "Turn on case insensitive feature
 let g:EasyMotion_do_mapping = 0       "Disable default mappings
-
 "Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
 nmap f <Plug>(easymotion-overwin-f)
@@ -174,6 +144,38 @@ nmap s <Plug>(easymotion-overwin-f2)
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+"----------------------------------"
+"| Custom keyboard shortcuts
+"----------------------------------"
+"Close current buffer
+nmap <C-Q> :bd<cr>
+"Make it easy to edit the Vimrc file.
+nmap <Leader>ev :tabedit $MYVIMRC<cr>
+"Make it easy to edit marcz.vim vundle plugins list
+nmap <Leader>em :tabedit ~/.vim/marcz.vim<cr>
+"Add simple highlight removal.
+nmap <Leader><space> :nohlsearch<cr>
+"Easy escaping to normal model
+imap jj <esc>
+"Panic Save Behavior
+nnoremap <C-S> :w<cr>
+inoremap <C-S> <esc>:w<cr>
+"Moving lines up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+"Chang to current windows directory
+nnoremap <Leader>cd :lcd %:p:h<CR>:pwd<CR>
+
+"----------------------------------"
+"| Command Notes I cannot remember
+"----------------------------------"
+" Clear the quick fix list
+" :cexpr []
 
 "-------------Auto-Commands-------"
 "Automatically source the Vimrc file on save.
