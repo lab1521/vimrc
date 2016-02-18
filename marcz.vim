@@ -23,6 +23,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'rking/ag.vim'
+Plugin 'skwp/greplace.vim'
+Plugin 'msanders/snipmate.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
