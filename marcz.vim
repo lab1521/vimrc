@@ -14,7 +14,6 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'skwp/greplace.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'Shougo/neocomplete.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
@@ -28,7 +27,9 @@ Plugin 'tpope/vim-vinegar'
 " ---- Linters
 Plugin 'scrooloose/syntastic'
 " ---- Snippets
-Plugin 'msanders/snipmate.vim'
+" Plugin 'Shougo/neocomplete.vim'
+" Plugin 'Shougo/neosnippet-snippets'
+" Plugin 'msanders/snipmate.vim'
 " ---- Github
 " Plugin 'tpope/vim-fugitive.git'
 " Plugin 'airblade/vim-gitgutter'
