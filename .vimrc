@@ -10,6 +10,7 @@ let mapleader = ','                  "The default is \, but a comma is much bett
 set number			                 "Let's activate line numbers.
 set cursorline                       "Highlights current line
 set laststatus=2
+set noerrorbells visualbell t_vb=    "No damn bells!
 
 "Tabs
 set tabstop=4                        "Tab is four spaces
@@ -44,6 +45,12 @@ set guioptions-=l                     "Disable Gui scrollbars.
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
+
+" Fake custom padding for each window
+" hi LineNr guibg=bg
+" set foldcolumn=1
+hi foldcolumn guibg=bg
+hi vertsplit guifg=#073642 guibg=bg
 
 "----------------------------------"
 "| indentLine
@@ -82,6 +89,8 @@ nmap <C-L> <C-W><C-L>
 nmap <C-Q> :bd<cr>
 "Make it easy to edit the Vimrc file.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
+"Make it easy to edit marcz.vim vundle plugins list
+nmap <Leader>em :tabedit ~/.vim/marcz.vim<cr>
 "Add simple highlight removal.
 nmap <Leader><space> :nohlsearch<cr>
 "Easy escaping to normal model
@@ -96,6 +105,19 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+"Chang to current windows directory
+nnoremap <Leader>cd :lcd %:p:h<CR>:pwd<CR>
+"----------------------------------"
+"| Command Notes
+"----------------------------------"
+" Clear the quick fix list
+" :cexpr []
+
+"----------------------------------"
+"| GReplace.vim using Ag search
+"----------------------------------"
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
 
 "----------------------------------"
 "| NERDTree
