@@ -25,7 +25,15 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'tpope/vim-vinegar'
 " ---- Linters
+Plugin 'StanAngeloff/php.vim'
+Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'scrooloose/syntastic'
+Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'ervandew/supertab'
+" ---- Vim-Snipmate
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 " ---- Snippets
 " Plugin 'Shougo/neocomplete.vim'
 " Plugin 'Shougo/neosnippet-snippets'
