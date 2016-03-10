@@ -13,11 +13,11 @@ set laststatus=2
 set noerrorbells visualbell t_vb=    "No damn bells!
 
 "Tabs
-set tabstop=4                        "Tab is four spaces
 set smarttab
-set softtabstop=4                    "When hitting <BS>, pretend like a tab is removed, even if spaces
-set expandtab                        "Expand tabs by default (overloadable per file type later)
-set shiftwidth=4                     "Number of spaces to use for autoindenting
+set tabstop=4                        "Tab is four spaces
+set softtabstop=4                    "Tabs in insert mode
+set expandtab                        "Use spaces as tabs
+set shiftwidth=4                     "Tabs in normal mode
 
 " Swap files out of the project root
 set backupdir=~/.vim/backup//
@@ -151,6 +151,12 @@ map <Leader>k <Plug>(easymotion-k)
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 "----------------------------------"
+"| PHPComplete.vim
+"----------------------------------"
+let g:php_cs_fixer_level = "psr2"
+nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
+
+"----------------------------------"
 "| Custom keyboard shortcuts
 "----------------------------------"
 "Close current buffer
@@ -175,6 +181,28 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 "Chang to current windows directory
 nnoremap <Leader>cd :lcd %:p:h<CR>:pwd<CR>
+
+"----------------------------------"
+"| vim-php-namespace
+"| https://github.com/arnaud-lb/vim-php-namespace
+"----------------------------------"
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <Leader>n <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
+
+"Sort PHP use statements
+"http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
+vmap <Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
 
 "----------------------------------"
 "| Command Notes I cannot remember
