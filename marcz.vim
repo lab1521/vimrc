@@ -7,6 +7,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " ---- Theme / Colors 
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
@@ -38,6 +40,9 @@ Plugin 'garbas/vim-snipmate'
 " Plugin 'Shougo/neocomplete.vim'
 " Plugin 'Shougo/neosnippet-snippets'
 " Plugin 'msanders/snipmate.vim'
+Plugin 'tobyS/vmustache'
+Plugin 'tobyS/pdv'
+Plugin 'SirVer/ultisnips'
 " ---- Github
 " Plugin 'tpope/vim-fugitive.git'
 " Plugin 'airblade/vim-gitgutter'
