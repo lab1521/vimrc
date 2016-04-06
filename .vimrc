@@ -32,11 +32,14 @@ set nowrap                           "Don't wrap lines
 "-------------Visuals-------------"
 "colorscheme atom-dark
 "http://ethanschoonover.com/solarized
-colorscheme solarized
+"colorscheme solarized
+" colorscheme PaperColor
+colorscheme hybrid_material
 
 set t_CO=256			              "Use 256 colors. This is useful for Terminal Vim.
 set background=dark
-set guifont=Inconsolata	      	      "Set the default font family and size.
+" set guifont=Inconsolata	      	      "Set the default font family and size.
+set guifont=Fira\ Mono	      	      "Set the default font family and size.
 " set guifont=DejaVu\ Sans\ Mono      "Set the default font family and size.
 set lines=50 columns=120 linespace=10
 
@@ -69,7 +72,9 @@ let g:indentLine_color_gui = '#A4E57E'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme='solarized'
+"let g:airline_theme='solarized'
+" let g:airline_theme='PaperColor'
+let g:airline_theme = "hybrid"
 
 "-------------Search--------------"
 set hlsearch                         "Highlight all matched terms.
@@ -125,7 +130,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
@@ -151,10 +156,23 @@ map <Leader>k <Plug>(easymotion-k)
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 "----------------------------------"
-"| PHPComplete.vim
+"| PHP CS Fixer
 "----------------------------------"
 let g:php_cs_fixer_level = "psr2"
 nnoremap <silent><leader>pf :call PhpCsFixerFixFile()<CR>
+
+"----------------------------------"
+"| pdv
+"----------------------------------"
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
+
+"----------------------------------"
+"| Ultisnips
+"----------------------------------"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "----------------------------------"
 "| Custom keyboard shortcuts
@@ -203,6 +221,16 @@ autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
 "Sort PHP use statements
 "http://stackoverflow.com/questions/11531073/how-do-you-sort-a-range-of-lines-by-length
 vmap <Leader>su ! awk '{ print length(), $0 \| "sort -n \| cut -d\\  -f2-" }'<cr>
+
+"----------------------------------"
+"| Laravel Specific
+"----------------------------------"
+nmap <Leader>lr :e app/Http/routes.php<cr>
+nmap <Leader>lm :!php artisan make:
+nmap <Leader><Leader>c :e app/Http/Controllers/<cr>
+nmap <Leader><Leader>m :CtrlP<cr>app/
+nmap <Leader><Leader>v :e resources/views/<cr>
+
 
 "----------------------------------"
 "| Command Notes I cannot remember
